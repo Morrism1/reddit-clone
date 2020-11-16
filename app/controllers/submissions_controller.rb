@@ -15,7 +15,7 @@ class SubmissionsController < ApplicationController
 
   # GET /submissions/new
   def new
-    @submission = current_user.submissions.new
+    @submission = current_user.submissions.build
   end
 
   # GET /submissions/1/edit
@@ -24,7 +24,7 @@ class SubmissionsController < ApplicationController
   # POST /submissions
   # POST /submissions.json
   def create
-    @submission = current_user.submissions.new(submission_params)
+    @submission = current_user.submissions.build(submission_params)
 
     respond_to do |format|
       if @submission.save
