@@ -2,6 +2,7 @@
 
 class SubmissionsController < ApplicationController
   before_action :set_submission, only: %i[show edit update destroy]
+  before_action :authenticate_user!, except: %i[show index]
 
   # GET /submissions
   # GET /submissions.json
