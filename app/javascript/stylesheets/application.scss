@@ -2,5 +2,11 @@
 @import "tailwindcss/components";
 
 // You can add your own custom components/styles here
+@import "components/animation";
+@import "components/base";
+@import "components/buttons";
+@import "components/cards";
+@import "components/icons";
+@import "components/forms";
 
 @import "tailwindcss/utilities";
