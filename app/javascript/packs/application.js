@@ -8,6 +8,8 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 
+import '../components/tabs'
+import '../components/dropdown'
 // Tailwind CSS
 import "stylesheets/application"
 
