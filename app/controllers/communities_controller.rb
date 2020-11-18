@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class CommunitiesController < ApplicationController
-  before_action :set_community, only: [:show, :edit, :update, :destroy]
+  before_action :set_community, only: %i[show edit update destroy]
 
   # GET /communities
   # GET /communities.json
@@ -9,8 +11,7 @@ class CommunitiesController < ApplicationController
 
   # GET /communities/1
   # GET /communities/1.json
-  def show
-  end
+  def show; end
 
   # GET /communities/new
   def new
@@ -18,8 +19,7 @@ class CommunitiesController < ApplicationController
   end
 
   # GET /communities/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /communities
   # POST /communities.json
@@ -62,13 +62,14 @@ class CommunitiesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_community
-      @community = Community.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def community_params
-      params.require(:community).permit(:name, :title, :description, :sidebar)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_community
+    @community = Community.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def community_params
+    params.require(:community).permit(:name, :title, :description, :sidebar)
+  end
 end

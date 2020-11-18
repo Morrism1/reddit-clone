@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class CommunitiesControllerTest < ActionDispatch::IntegrationTest
@@ -5,17 +7,17 @@ class CommunitiesControllerTest < ActionDispatch::IntegrationTest
     @community = communities(:one)
   end
 
-  test "should get index" do
+  test 'should get index' do
     get communities_url
     assert_response :success
   end
 
-  test "should get new" do
+  test 'should get new' do
     get new_community_url
     assert_response :success
   end
 
-  test "should create community" do
+  test 'should create community' do
     assert_difference('Community.count') do
       post communities_url, params: { community: { description: @community.description, name: @community.name, sidebar: @community.sidebar, title: @community.title } }
     end
@@ -23,22 +25,22 @@ class CommunitiesControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to community_url(Community.last)
   end
 
-  test "should show community" do
+  test 'should show community' do
     get community_url(@community)
     assert_response :success
   end
 
-  test "should get edit" do
+  test 'should get edit' do
     get edit_community_url(@community)
     assert_response :success
   end
 
-  test "should update community" do
+  test 'should update community' do
     patch community_url(@community), params: { community: { description: @community.description, name: @community.name, sidebar: @community.sidebar, title: @community.title } }
     assert_redirected_to community_url(@community)
   end
 
-  test "should destroy community" do
+  test 'should destroy community' do
     assert_difference('Community.count', -1) do
       delete community_url(@community)
     end
