@@ -3,6 +3,7 @@
 Rails.application.routes.draw do
   resources :submissions
   devise_for :users
+  resources :users, only: [:show], as: "profile"
   get 'home/index'
-  root to: 'home#index'
+  root to: 'submissions#index'
 end

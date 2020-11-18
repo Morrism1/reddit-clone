@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Weddit</title>
+     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -70,16 +71,14 @@
           <% end %>
         <% else %>
           <%= link_to "Login", new_user_session_path, class: 'btn btn-outline btn-small mr-2'%>
-          <%= link_to "Sign up", new_user_registration_path, class: 'btn btn-outline btn-small mr-2'%>
+          <%= link_to "Sign up", new_user_registration_path, class: 'btn btn-purple btn-small mr-2'%>
         <% end %>
       </div>
       
       <% if user_signed_in? %>
-        <div class="dropdown rounded bg-white border border-gray-400 text-gray-600 ml-1 hover:bg-gray-200">
-          <div class="dropdown-content pt-2 pb-2 pl-3 pr-1">
-            <%= link_to '#', class: 'js-dropdown-user-target no-underline flex justify-between text-gray-700
-            uppercase text-xs tracking-wide items-center font-semibold' do%>
-              <%#= current_user.username if current_user.username%>
+        <div class="dropdown dropdown-user-account rounded bg-white border border-gray-400 text-gray-600 ml-1 hover:bg-gray-200 z-50 relative">
+            <%= link_to '#', class: 'dropdown-target no-underline flex justify-between text-gray-700 uppercase text-xs tracking-wide items-center font-semibold pt-2 pb-2 pl-3 pr-1' do%>
+              <%= current_user.username if current_user.username%>
               <%= render_svg 'icons/chevron-down'%>
             <% end %>
             <ul class="list-none hidden dropdown-list absolute left-0 rounded-b border border-gray-500 shadow">
@@ -102,7 +101,6 @@
                 <% end%>
               </li>
             </ul>
-          </div>
         </div>
       <% end %>
 
