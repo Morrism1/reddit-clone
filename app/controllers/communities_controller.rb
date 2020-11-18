@@ -15,7 +15,7 @@ class CommunitiesController < ApplicationController
 
   # GET /communities/new
   def new
-    @community = Community.new
+    @community = current_user.communities.build
   end
 
   # GET /communities/1/edit
@@ -24,7 +24,8 @@ class CommunitiesController < ApplicationController
   # POST /communities
   # POST /communities.json
   def create
-    @community = Community.new(community_params)
+    @community = current_user.communities.build(community_params)
+    @community.user_id = current_user.id
 
     respond_to do |format|
       if @community.save
@@ -70,6 +71,6 @@ class CommunitiesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def community_params
-    params.require(:community).permit(:name, :title, :description, :sidebar)
+    params.require(:community).permit(:name, :title, :description, :sidebar, :user_id)
   end
 end
